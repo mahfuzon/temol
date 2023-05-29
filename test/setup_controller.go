@@ -10,6 +10,7 @@ import (
 func SetupUserController(db *gorm.DB) *controller.UserController {
 	userRepository := repository.NewUserRepository(db)
 	userService := service.NewUserService(userRepository)
-	userController := controller.NewUserController(userService)
+	authService := service.NewAuthService()
+	userController := controller.NewUserController(userService, authService)
 	return userController
 }

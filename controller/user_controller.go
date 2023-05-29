@@ -16,8 +16,8 @@ type UserController struct {
 	authService service.AuthService
 }
 
-func NewUserController(userService service.UserService) *UserController {
-	return &UserController{userService: userService}
+func NewUserController(userService service.UserService, authService service.AuthService) *UserController {
+	return &UserController{userService: userService, authService: authService}
 }
 
 func (userController *UserController) Register(ctx echo.Context) error {
