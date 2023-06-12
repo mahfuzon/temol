@@ -7,6 +7,7 @@ import (
 	"github.com/mahfuzon/temol/libraries"
 	"github.com/mahfuzon/temol/response/api_response"
 	"github.com/mahfuzon/temol/test"
+	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"io"
 	"net/http"
@@ -16,10 +17,11 @@ import (
 )
 
 func TestCheckUserIsNotExists(t *testing.T) {
+	log := logrus.New()
 	db := libraries.SetDbTest()
 
 	test.TruncateTableUsers(db)
-	userController := test.SetupUserController(db)
+	userController := test.SetupUserController(db, log)
 
 	requestJsonString := `{
   "password" : "12345678",

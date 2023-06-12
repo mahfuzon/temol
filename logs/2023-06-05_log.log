@@ -1,0 +1,77 @@
+time="2023-06-05T21:45:24+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T21:45:24+07:00" level=info msg=request URI=/api/v1/auth/login ip= status=422
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.10.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+time="2023-06-05T22:01:31+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T22:01:31+07:00" level=info msg=request URI=/api/v1/auth/login ip= status=422
+time="2023-06-05T22:02:00+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T22:02:00+07:00" level=info msg=request URI=/api/v1/auth/login ip= status=422
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.10.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+time="2023-06-05T22:03:06+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T22:03:06+07:00" level=info msg=request URI=/api/v1/auth/login status=422
+time="2023-06-05T22:03:23+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T22:03:23+07:00" level=info msg=request URI=/api/v1/auth/login status=422
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.10.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+{"time":"2023-06-05T22:04:11.7169216+07:00","level":"FATAL","prefix":"echo","file":"router.go","line":"52","message":"sasa{\r\n    \"phone_number\" : \"081278160990\"\r\n}"}
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.10.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+{"time":"2023-06-05T22:04:32.2679057+07:00","level":"FATAL","prefix":"echo","file":"router.go","line":"52","message":"sasa{\r\n    \"phone_number\" : \"081278160990\"\r\n}"}
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.10.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+time="2023-06-05T22:10:05+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T22:10:05+07:00" level=info msg=request URI=/api/v1/auth/login status=422
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.10.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+{"time":"2023-06-05T22:13:13.8668162+07:00","level":"DEBUG","prefix":"echo","file":"router.go","line":"53","message":"sasa{\r\n    \"phone_number\" : \"081278160990\"\r\n}"}
+time="2023-06-05T22:13:13+07:00" level=info msg=body request="{\r\n    \"phone_number\" : \"081278160990\"\r\n}" response="{\"status\":\"error\",\"message\":\"failed login\",\"data\":[\"Key: 'UserLoginRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag\"]}\n"
+time="2023-06-05T22:13:13+07:00" level=info msg=request URI=/api/v1/auth/login status=422

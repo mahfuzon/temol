@@ -9,29 +9,34 @@ import (
 	"github.com/mahfuzon/temol/response/api_response"
 	"github.com/mahfuzon/temol/response/user_response"
 	"github.com/mahfuzon/temol/service"
+	"github.com/sirupsen/logrus"
 )
 
 type UserController struct {
+	log         *logrus.Logger
 	userService service.UserService
 	authService service.AuthService
 }
 
-func NewUserController(userService service.UserService, authService service.AuthService) *UserController {
-	return &UserController{userService: userService, authService: authService}
+func NewUserController(userService service.UserService, authService service.AuthService, log *logrus.Logger) *UserController {
+	return &UserController{userService: userService, authService: authService, log: log}
 }
 
 func (userController *UserController) Register(ctx echo.Context) error {
+	userController.log.Info("userController.Register")
 	request := user_request.UserRegisterRequest{}
 	err := ctx.Bind(&request)
 	if err != nil {
-		fmt.Println("error binding")
 		errorResponse := api_response.ConverseToErrorResponse("failed register", err.Error())
 		return ctx.JSON(500, errorResponse)
 	}
 
+	userController.log.WithFields(logrus.Fields{
+		"requestBody": request,
+	}).Info("request body")
+
 	err = ctx.Validate(&request)
 	if err != nil {
-		fmt.Println("error validation")
 		errorValidation := helper.ConverseToErrorString(err.(validator.ValidationErrors))
 		errorResponse := api_response.ConverseToErrorResponse("failed register", errorValidation)
 		return ctx.JSON(422, errorResponse)
@@ -39,7 +44,6 @@ func (userController *UserController) Register(ctx echo.Context) error {
 
 	user, err := userController.userService.FindByEmailOrPhoneNumber(request.Email, request.PhoneNumber)
 	if err != nil {
-		fmt.Println("error check email")
 		errorResponse := api_response.ConverseToErrorResponse("failed register", err.Error())
 		return ctx.JSON(400, errorResponse)
 	}
@@ -51,7 +55,6 @@ func (userController *UserController) Register(ctx echo.Context) error {
 
 	passWordHash, err := userController.userService.HashPassword(request.Password)
 	if err != nil {
-		fmt.Println("error hash password")
 		errorResponse := api_response.ConverseToErrorResponse("failed register", err.Error())
 		return ctx.JSON(400, errorResponse)
 	}
@@ -60,28 +63,33 @@ func (userController *UserController) Register(ctx echo.Context) error {
 
 	userProfileResponse, err := userController.userService.Register(request)
 	if err != nil {
-		fmt.Println("error register")
 		errorResponse := api_response.ConverseToErrorResponse("failed register", err.Error())
 		return ctx.JSON(400, errorResponse)
 	}
 
 	successResponse := api_response.ConverseToSuccessResponse("success register", userProfileResponse)
+
+	userController.log.Info("success userController.Register")
 	return ctx.JSON(200, successResponse)
 }
 
 func (userController *UserController) Login(ctx echo.Context) error {
+	userController.log.Info("userController.Login")
+
 	request := user_request.UserLoginRequest{}
 
 	err := ctx.Bind(&request)
 	if err != nil {
-		fmt.Println("error binding")
 		errorResponse := api_response.ConverseToErrorResponse("failed login", err.Error())
 		return ctx.JSON(500, errorResponse)
 	}
 
+	userController.log.WithFields(logrus.Fields{
+		"requestBody": request,
+	}).Info("request body")
+
 	err = ctx.Validate(&request)
 	if err != nil {
-		fmt.Println("error validation")
 		errorValidation := helper.ConverseToErrorString(err.(validator.ValidationErrors))
 		errorResponse := api_response.ConverseToErrorResponse("failed login", errorValidation)
 		return ctx.JSON(422, errorResponse)
@@ -89,7 +97,6 @@ func (userController *UserController) Login(ctx echo.Context) error {
 
 	user, err := userController.userService.FindByEmailOrPhoneNumber(request.PhoneNumber, request.PhoneNumber)
 	if err != nil {
-		fmt.Println("error check email or phone number")
 		errorResponse := api_response.ConverseToErrorResponse("failed login", err.Error())
 		return ctx.JSON(400, errorResponse)
 	}

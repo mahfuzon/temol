@@ -9,6 +9,7 @@ import (
 	"github.com/mahfuzon/temol/models"
 	"github.com/mahfuzon/temol/response/api_response"
 	"github.com/mahfuzon/temol/test"
+	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/bcrypt"
 	"io"
@@ -37,7 +38,8 @@ func TestUserLoginSuccess(t *testing.T) {
 	err = db.Create(&user).Error
 	assert.NoError(t, err)
 
-	userController := test.SetupUserController(db)
+	log := logrus.New()
+	userController := test.SetupUserController(db, log)
 
 	requestJsonString := `{
   "password" : "12345678",
